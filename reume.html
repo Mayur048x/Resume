@@ -1,0 +1,747 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+  .resume-wrap {
+    font-family: 'DM Sans', sans-serif;
+    background: #0a0a0a;
+    color: #e8e4dd;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .resume-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    padding: 2.5rem 2.5rem 2rem;
+    border-bottom: 0.5px solid #2a2a2a;
+    align-items: start;
+  }
+
+  .header-left {}
+
+  .name-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .profile-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #333;
+    flex-shrink: 0;
+  }
+
+  .name-text {}
+
+  .name-main {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 2px;
+    color: #f0ece4;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .name-title {
+    font-size: 12px;
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .tagline {
+    font-size: 13px;
+    color: #999;
+    max-width: 480px;
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+  }
+
+  .social-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border: 0.5px solid #2e2e2e;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 400;
+    transition: border-color 0.2s, color 0.2s;
+    background: #111;
+  }
+
+  .social-link:hover {
+    border-color: #555;
+    color: #eee;
+  }
+
+  .social-link svg {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .avail-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #5a9e6f;
+    border: 0.5px solid #2a4a35;
+    background: #0f1f16;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-left: 4px;
+  }
+
+  .avail-dot {
+    width: 5px;
+    height: 5px;
+    background: #4caf70;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .header-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+  }
+
+  .stat-item {
+    text-align: right;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: #f0ece4;
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .resume-body {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .main-col {
+    padding: 2rem 2.5rem;
+    border-right: 0.5px solid #1e1e1e;
+  }
+
+  .side-col {
+    padding: 2rem 1.75rem;
+  }
+
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #555;
+    margin: 0 0 1.25rem;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid #1e1e1e;
+  }
+
+  .about-text {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #aaa;
+    margin: 0;
+  }
+
+  .about-text em {
+    color: #d4c9b5;
+    font-style: normal;
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+  }
+
+  .video-wrap {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 0.5px solid #2a2a2a;
+    background: #111;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .video-caption {
+    font-size: 11px;
+    color: #555;
+    margin: 8px 0 0;
+    font-style: italic;
+  }
+
+  .project-card {
+    border: 0.5px solid #1e1e1e;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    background: #0d0d0d;
+    transition: border-color 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: #333;
+  }
+
+  .project-tag {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #6a9e78;
+    background: #0f1f16;
+    border: 0.5px solid #1e3d28;
+    padding: 2px 7px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .project-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: #e8e4dd;
+    margin: 0 0 6px;
+    font-weight: 400;
+  }
+
+  .project-desc {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.65;
+    margin: 0 0 10px;
+  }
+
+  .project-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .pill {
+    font-size: 10px;
+    color: #666;
+    border: 0.5px solid #252525;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #111;
+  }
+
+  .skill-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .skill-group-name {
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .skill-tag {
+    font-size: 11px;
+    color: #999;
+    border: 0.5px solid #222;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: #111;
+  }
+
+  .edu-item {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.5px solid #1a1a1a;
+  }
+
+  .edu-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .edu-degree {
+    font-size: 13px;
+    color: #d4c9b5;
+    font-weight: 500;
+    margin: 0 0 2px;
+  }
+
+  .edu-school {
+    font-size: 11px;
+    color: #666;
+    margin: 0 0 2px;
+  }
+
+  .edu-year {
+    font-size: 10px;
+    color: #444;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #888;
+    text-decoration: none;
+  }
+
+  a.contact-row:hover {
+    color: #bbb;
+  }
+
+  .contact-row svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: #555;
+    stroke-width: 1.5;
+    flex-shrink: 0;
+  }
+
+  .exp-item {
+    margin-bottom: 1.25rem;
+  }
+
+  .exp-role {
+    font-size: 13px;
+    color: #d4c9b5;
+    font-weight: 500;
+    margin: 0 0 2px;
+  }
+
+  .exp-company {
+    font-size: 11px;
+    color: #777;
+    margin: 0 0 2px;
+  }
+
+  .exp-date {
+    font-size: 10px;
+    color: #444;
+    margin: 0 0 8px;
+  }
+
+  .exp-list {
+    margin: 0;
+    padding: 0 0 0 14px;
+    font-size: 11.5px;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  .divider-line {
+    height: 0.5px;
+    background: #1a1a1a;
+    margin: 0;
+  }
+
+  .resume-footer {
+    padding: 1rem 2.5rem;
+    border-top: 0.5px solid #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-name {
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+
+  .footer-link {
+    font-size: 11px;
+    color: #555;
+    text-decoration: none;
+  }
+
+  .footer-link:hover {
+    color: #999;
+  }
+</style>
+
+<div class="resume-wrap">
+
+  <div class="resume-header">
+    <div class="header-left">
+      <div class="name-block">
+        <img class="profile-photo" src="https://mayur-ramchandani.vercel.app/images/mayur-profile.jpg" alt="Mayur Ramchandani" />
+        <div class="name-text">
+          <h1 class="name-main">Mayur Ramchandani</h1>
+          <p class="name-title">AI Systems Builder &amp; Automation Engineer</p>
+        </div>
+      </div>
+      <p class="tagline">
+        Building AI-powered operational systems that turn chaotic workflows into structured, automated execution.
+        Operations-first. Backend-driven. 
+        <br>
+        Execution-obsessed.
+      </p>
+      <div class="social-row">
+
+        <a class="social-link" href="mailto:itzmemayur04@gmail.com">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          itzmemayur04@gmail.com
+        </a>
+
+        <a class="social-link" href="https://www.linkedin.com/in/mayur-ramchandani-571bb3307/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+
+        <a class="social-link" href="https://github.com/Mayur048x" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          Mayur048x
+        </a>
+
+        <a class="social-link" href="https://mayur-ramchandani.vercel.app/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          Portfolio
+        </a>
+
+        <a class="social-link" href="https://wa.me/919588651689" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+
+        <span class="avail-badge"><span class="avail-dot"></span>Open to opportunities</span>
+      </div>
+    </div>
+
+    <div class="header-stats">
+      <div class="stat-item">
+        <span class="stat-num">2+</span>
+        <span class="stat-label">Years building</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5+</span>
+        <span class="stat-label">Projects shipped</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">13</span>
+        <span class="stat-label">n8n workflows</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="resume-body">
+
+    <div class="main-col">
+
+      <div class="section">
+        <p class="section-label">About</p>
+        <p class="about-text">
+          I build <em>AI-powered operational systems</em> that turn chaotic workflows into structured, automated execution.
+           Focused on workflow orchestration, backend integrations, AI agents, and execution infrastructure,
+            my work lives where operations meet intelligence systems.
+          <br><br>
+          Most systems fail not because teams lack tools, but because execution breaks between communication,
+           dependencies, approvals, and operational visibility. <em>I’m interested in designing systems 
+           that reduce this operational chaos</em> through orchestration, adaptive workflows, and execution intelligence.
+           <br><br>
+           My <em>current focus areas</em> include:
+        <br>
+. Operational intelligence systems
+<br>
+. AI execution infrastructure
+<br>
+. Workflow orchestration
+<br>
+. Adaptive learning systems
+<br>
+. Human + AI operational coordination
+        <br><br>
+          Strong believer that the next advantage in operations comes from <em>learning systems</em>, not just automation.
+        </p>
+      </div>
+
+      <div class="section">
+        <p class="section-label">Live Demo — WhatsApp AI PM System</p>
+        <div class="video-wrap">
+          <iframe
+            src="https://player.vimeo.com/video/1190038553?badge=0&autopause=0&player_id=0&app_id=58479&muted=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="AI Operations System Demo">
+          </iframe>
+        </div>
+        <p class="video-caption">WhatsApp-native project management tasks extracted from messages, auto-assigned, tracked end-to-end.</p>
+      </div>
+
+      <div class="section">
+        <p class="section-label">Projects</p>
+
+        <div class="project-card">
+          <span class="project-tag">Core Product</span>
+          <h3 class="project-name">WhatsApp AI Project Management System</h3>
+          <p class="project-desc">
+            A WhatsApp-native execution system that converts unstructured messages into structured tasks with auto-assignment,
+            dependency tracking, manager visibility dashboards, approval flows, and file submission all via natural language.
+          </p>
+          <div class="project-pills">
+            <span class="pill">n8n</span>
+            <span class="pill">Supabase</span>
+            <span class="pill">Twilio</span>
+            <span class="pill">WhatsApp API</span>
+            <span class="pill">Next.js</span>
+            <span class="pill">OpenAI</span>
+            <span class="pill">Vercel</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">Intelligence</span>
+          <h3 class="project-name">AI Operational Intelligence Workflow</h3>
+          <p class="project-desc">
+            Designed operational intelligence workflows for signal interpretation, multi-source enrichment,
+            pain-point inference, timing intelligence, adaptive sequencing, and closed-loop learning systems.
+          </p>
+          <div class="project-pills">
+            <span class="pill">RAG</span>
+            <span class="pill">Vector DBs</span>
+            <span class="pill">Prompt Engineering</span>
+            <span class="pill">Apollo</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="project-tag">Research</span>
+          <h3 class="project-name">Retrieval &amp; AI Infrastructure Research</h3>
+          <p class="project-desc">
+            Explored operational bottlenecks in retrieval systems: semantic chunking, hybrid retrieval,
+            reranking, embedding quality, metadata filtering, retrieval observability, and latency optimization.
+          </p>
+          <div class="project-pills">
+            <span class="pill">Semantic Search</span>
+            <span class="pill">Reranking</span>
+            <span class="pill">Embeddings</span>
+            <span class="pill">RAG Pipelines</span>
+          </div>
+        </div>
+
+      </div>
+
+      
+<div class="section">
+  <p class="section-label">Why Me</p>
+
+  <div class="project-card">
+    <span class="project-tag">Value</span>
+    <h3 class="project-name">Why I Believe I’m A Strong Fit</h3>
+    <p class="project-desc">
+      I’m not approaching AI only from a content or experimentation angle I actively build systems.
+      Over the last year, I’ve been independently designing AI-powered operational workflows,
+      orchestration pipelines, backend automations, and execution infrastructure around real use cases.
+      <br><br>
+      I bring an execution-first mindset with strong curiosity around systems thinking, workflow
+      intelligence, and AI operations. I learn extremely fast, adapt quickly, and naturally go deep
+      into operational problems until I understand how to structure them into scalable systems.
+      <br><br>
+      More importantly, I genuinely care about this space. I’m already spending most of my time
+      researching, building, documenting, and thinking about operational AI systems which is why
+      this feels less like a random opportunity and more like the environment I want to grow in.
+    </p>
+  </div>
+</div>
+
+
+      <div class="section">
+        <p class="section-label">Experience</p>
+        <div class="exp-item">
+          <p class="exp-role">Independent AI Systems Builder</p>
+          <p class="exp-company">Self-directed · Remote</p>
+          <p class="exp-date">2024 – Present</p>
+          <ul class="exp-list">
+            <li>Built a full WhatsApp-native PM system with 13 n8n workflows, Supabase backend, and Next.js web layer</li>
+            <li>Designed AI execution pipelines covering task lifecycle, approvals, handover, and file submissions</li>
+            <li>Explored multi-tenant SaaS architecture, tiered pricing, and early go-to-market validation</li>
+            <li>Publishing systems-thinking content on AI operations and workflow intelligence on LinkedIn</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <p class="exp-role">Insurance Entrepreneur</p>
+          <p class="exp-company">Universal Sompo General Insurance</p>
+          <p class="exp-date">~2 Years</p>
+          <ul class="exp-list">
+            <li>Built agent relationships, conducted cold outreach, and drove partnership-led business growth</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="side-col">
+
+      <div class="section">
+        <p class="section-label">Skills</p>
+
+        <div class="skill-group">
+          <p class="skill-group-name">AI &amp; Automation</p>
+          <div class="skill-tags">
+            <span class="skill-tag">AI Workflow Automation</span>
+            <span class="skill-tag">AI Orchestration</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">Adaptive Workflows</span>
+            <span class="skill-tag">Operational Intelligence</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-name">Backend &amp; Integrations</p>
+          <div class="skill-tags">
+            <span class="skill-tag">API Integrations</span>
+            <span class="skill-tag">Webhooks</span>
+            <span class="skill-tag">Data Pipelines</span>
+            <span class="skill-tag">Backend Automation</span>
+            <span class="skill-tag">System Architecture</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <p class="skill-group-name">Tools &amp; Platforms</p>
+          <div class="skill-tags">
+            <span class="skill-tag">n8n</span>
+            <span class="skill-tag">Supabase</span>
+            <span class="skill-tag">Twilio</span>
+            <span class="skill-tag">WhatsApp API</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">Claude API</span>
+            <span class="skill-tag">OpenAI</span>
+            <span class="skill-tag">Apollo</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">Render</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section">
+        <p class="section-label">Education</p>
+
+        <div class="edu-item">
+          <p class="edu-degree">BCA — Ongoing</p>
+          <p class="edu-school">D.Y. Patil University</p>
+          <p class="edu-year">2026 – Present</p>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">HSC — Commerce</p>
+          <p class="edu-school">R.K. Talreja College</p>
+          <p class="edu-year">2024 – 2026 · 64%</p>
+        </div>
+
+        <div class="edu-item">
+          <p class="edu-degree">SSC</p>
+          <p class="edu-school">Welfare High School</p>
+          <p class="edu-year">2024 · 66%</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <p class="section-label">Contact</p>
+
+        <a class="contact-row" href="mailto:itzmemayur04@gmail.com">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          itzmemayur04@gmail.com
+        </a>
+
+        <a class="contact-row" href="https://wa.me/919588651689" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12 19.79 19.79 0 011.5 3.18 2 2 0 013.5 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.49a16 16 0 006.6 6.6l.86-.86a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 95886 51689
+        </a>
+
+        <a class="contact-row" href="https://www.linkedin.com/in/mayur-ramchandani-571bb3307/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          Mayur Ramchandani
+        </a>
+
+        <a class="contact-row" href="https://github.com/Mayur048x" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          Mayur048x
+        </a>
+
+        <a class="contact-row" href="https://mayur-ramchandani.vercel.app/" target="_blank">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          mayur-ramchandani.vercel.app
+        </a>
+
+        <a class="contact-row" href="https://instagram.com/Mayur_048x" target="_blank">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @Mayur_048x
+        </a>
+
+      </div>
+
+      <div class="section">
+        <p class="section-label">Location</p>
+        <p style="font-size:12px; color:#666; margin:0;">Ulhasnagar, Maharashtra, India</p>
+        <p style="font-size:11px; color:#444; margin:4px 0 0;">Mumbai Metropolitan Region</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="resume-footer">
+    <span class="footer-name">MAYUR RAMCHANDANI · 2026</span>
+    <a class="footer-link" href="https://mayur-ramchandani.vercel.app/" target="_blank">mayur-ramchandani.vercel.app ↗</a>
+  </div>
+
+</div>
